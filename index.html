@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EULA – Stack It! | FunMindo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #09090f;
+      --surface:     #0f111a;
+      --surface-2:   #161827;
+      --border:      rgba(255,255,255,0.07);
+      --accent:      #22c55e;
+      --accent-dim:  rgba(34,197,94,0.12);
+      --accent-glow: rgba(34,197,94,0.25);
+      --text:        #dde3f0;
+      --text-muted:  #7a8499;
+      --text-faint:  #4a5268;
+      --red:         #f87171;
+      --red-dim:     rgba(248,113,113,0.10);
+      --radius:      14px;
+      --radius-sm:   8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .logo-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .logo-text span { color: var(--accent); }
+
+    /* ── MAIN WRAPPER ── */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    /* ── PAGE TITLE ── */
+    .page-title-block {
+      margin-bottom: 48px;
+    }
+    .page-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(34,197,94,0.25);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    h1 .game-name {
+      color: var(--accent);
+    }
+
+    /* ── META ROW ── */
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-bottom: 32px;
+    }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .meta-chip strong { color: var(--text); font-weight: 500; }
+    .meta-sep { color: var(--text-faint); }
+
+    /* ── BADGES ROW ── */
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* ── INTRO BOX ── */
+    .intro-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 48px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 14px;
+    }
+    .intro-box .icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── TABLE OF CONTENTS ── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 52px;
+    }
+    .toc-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 6px 24px;
+    }
+    .toc ol li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      transition: color .2s;
+    }
+    .toc ol li a:hover { color: var(--accent); }
+    .toc ol li a .num {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 12px;
+      min-width: 18px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 52px;
+      scroll-margin-top: 80px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .section-num {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 1.5px solid rgba(34,197,94,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+    h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 20px 0 10px;
+    }
+    p { margin-bottom: 14px; font-size: 15px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 18px 0;
+      display: flex;
+      gap: 12px;
+      font-size: 14.5px;
+    }
+    .callout .icon { font-size: 20px; flex-shrink: 0; }
+    .callout.green { border-left: 3px solid var(--accent); background: var(--accent-dim); }
+    .callout.red   { border-left: 3px solid var(--red);    background: var(--red-dim); }
+    .callout.neutral { border-left: 3px solid var(--text-faint); }
+
+    /* ── TWO-COLUMN RULES ── */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 18px 0;
+    }
+    @media (max-width: 560px) { .rules-grid { grid-template-columns: 1fr; } }
+    .rules-col {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+    }
+    .rules-col.allow { border-top: 2px solid var(--accent); }
+    .rules-col.deny  { border-top: 2px solid var(--red); }
+    .rules-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .rules-col.allow .rules-col-title { color: var(--accent); }
+    .rules-col.deny  .rules-col-title { color: var(--red); }
+    .rules-col ul { list-style: none; }
+    .rules-col ul li {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      padding: 4px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .rules-col ul li::before { flex-shrink: 0; margin-top: 2px; }
+    .rules-col.allow ul li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+    .rules-col.deny  ul li::before { content: "✕"; color: var(--red); font-weight: 700; }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; margin: 18px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    thead tr { background: var(--surface-2); }
+    th {
+      text-align: left;
+      padding: 11px 14px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12.5px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* ── THIRD-PARTY SERVICE CARDS ── */
+    .service-list { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+    .service-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .service-icon { font-size: 22px; flex-shrink: 0; }
+    .service-body h4 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .service-body p { font-size: 13.5px; color: var(--text-muted); margin: 0; }
+    .service-body a { color: var(--accent); text-decoration: none; }
+    .service-body a:hover { text-decoration: underline; }
+
+    /* ── CONTACT BOX ── */
+    .contact-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 28px;
+      margin-top: 52px;
+      text-align: center;
+    }
+    .contact-box .contact-icon { font-size: 36px; margin-bottom: 10px; }
+    .contact-box h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .contact-box p { font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+    .contact-box a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-faint);
+      margin-bottom: 6px;
+    }
+    .footer-copy strong { color: var(--text-muted); }
+    .footer-links {
+      font-size: 12px;
+      color: var(--text-faint);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 12px;
+    }
+    .footer-links a { color: var(--text-muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-sep { color: var(--text-faint); }
+
+    a { color: var(--accent); }
+    strong { font-weight: 600; color: var(--text); }
+    hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="logo-dot"></div>
+  <span class="logo-text">Fun<span>Mindo</span> Studio</span>
+</header>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- Title Block -->
+  <div class="page-title-block">
+    <div class="page-label">📄 Legal Document</div>
+    <h1>End User Licence Agreement<br><span class="game-name">Stack It!</span></h1>
+
+    <div class="meta-row">
+      <span class="meta-chip">Effective Date: <strong>April 25, 2026</strong></span>
+      <span class="meta-sep">·</span>
+      <span class="meta-chip">Last Updated: <strong>April 25, 2026</strong></span>
+      <span class="meta-sep">·</span>
+      <span class="meta-chip">Jurisdiction: <strong>India</strong></span>
+    </div>
+
+    <div class="badges-row">
+      <span class="badge">🟢 Rated for Everyone (3+)</span>
+      <span class="badge">🤖 Android</span>
+      <span class="badge">🆓 Free to Play</span>
+    </div>
+  </div>
+
+  <!-- Intro Box -->
+  <div class="intro-box">
+    <span class="icon">📋</span>
+    <div>
+      This End User Licence Agreement ("EULA") is a legally binding agreement between
+      <strong>you</strong> ("End User") and <strong>FunMindo</strong> ("we", "us", "our")
+      governing your use of the mobile game <strong>Stack It!</strong> ("the Game"), including
+      all updates, patches, and related content. By downloading, installing, or playing the Game,
+      you confirm that you have read, understood, and agree to be bound by this EULA. If you do
+      not agree, do not download or play the Game.
+    </div>
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#s1"><span class="num">1.</span> Parties &amp; Definitions</a></li>
+      <li><a href="#s2"><span class="num">2.</span> Acceptance of This EULA</a></li>
+      <li><a href="#s3"><span class="num">3.</span> Grant of Licence</a></li>
+      <li><a href="#s4"><span class="num">4.</span> Licence Restrictions</a></li>
+      <li><a href="#s5"><span class="num">5.</span> Intellectual Property</a></li>
+      <li><a href="#s6"><span class="num">6.</span> In-Game Content &amp; Currencies</a></li>
+      <li><a href="#s7"><span class="num">7.</span> Leaderboard &amp; Display Name</a></li>
+      <li><a href="#s8"><span class="num">8.</span> Advertisements</a></li>
+      <li><a href="#s9"><span class="num">9.</span> Third-Party Services</a></li>
+      <li><a href="#s10"><span class="num">10.</span> Privacy &amp; Data</a></li>
+      <li><a href="#s11"><span class="num">11.</span> Disclaimer of Warranties</a></li>
+      <li><a href="#s12"><span class="num">12.</span> Limitation of Liability</a></li>
+      <li><a href="#s13"><span class="num">13.</span> Termination</a></li>
+      <li><a href="#s14"><span class="num">14.</span> Updates to This EULA</a></li>
+      <li><a href="#s15"><span class="num">15.</span> Governing Law</a></li>
+      <li><a href="#s16"><span class="num">16.</span> Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- ── SECTION 1 ── -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Parties &amp; Definitions</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Term</th><th>Definition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>"FunMindo"</strong></td><td>FunMindo, the independent developer and publisher of Stack It!, operating from India.</td></tr>
+          <tr><td><strong>"Game"</strong></td><td>The mobile game Stack It!, including all versions, updates, patches, and any related content or services.</td></tr>
+          <tr><td><strong>"End User" / "you"</strong></td><td>The individual who downloads, installs, or plays the Game on an authorised device.</td></tr>
+          <tr><td><strong>"Device"</strong></td><td>A personal Android smartphone or tablet on which the Game is installed via Google Play Store.</td></tr>
+          <tr><td><strong>"In-Game Content"</strong></td><td>All virtual items including Coins, Diamonds, Crowns, block skins, and any other digital assets within the Game.</td></tr>
+          <tr><td><strong>"UGS"</strong></td><td>Unity Gaming Services — the third-party service that powers anonymous leaderboard functionality.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2 ── -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Acceptance of This EULA</h2>
+    </div>
+    <p>By downloading, installing, accessing, or playing Stack It!, you agree to be legally bound by this EULA and our <a href="https://funmindo.github.io/funmindo-privacy/">Privacy Policy</a> and <a href="https://funmindo.github.io/funmindo-terms/">Terms of Use</a>, all of which are incorporated by reference.</p>
+    <div class="callout neutral">
+      <span class="icon">👶</span>
+      <div>
+        <strong>Under 13?</strong> A parent or legal guardian must read and agree to this EULA on your behalf before you download or play the Game.
+        <strong>Ages 13–17?</strong> You represent that your parent or legal guardian has reviewed and agreed to this EULA.
+      </div>
+    </div>
+    <p>If you do not agree to this EULA, you must not download, install, or use the Game. You may terminate this agreement at any time by uninstalling the Game from your Device.</p>
+  </div>
+
+  <!-- ── SECTION 3 ── -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Grant of Licence</h2>
+    </div>
+    <p>Subject to your full compliance with this EULA, FunMindo grants you a:</p>
+    <div class="callout green">
+      <span class="icon">✅</span>
+      <div>
+        <strong>Limited · Non-exclusive · Non-transferable · Revocable</strong> personal licence to download
+        and play Stack It! on a single authorised Android Device that you own or control, solely for your
+        own personal, non-commercial entertainment.
+      </div>
+    </div>
+    <p>This licence is granted to you personally and may not be assigned, sublicensed, or transferred to any other person or entity. All rights not expressly granted to you under this EULA are reserved exclusively by FunMindo.</p>
+  </div>
+
+  <!-- ── SECTION 4 ── -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Licence Restrictions</h2>
+    </div>
+    <p>You agree that you will not, and will not allow or assist any third party to:</p>
+    <div class="rules-grid">
+      <div class="rules-col allow">
+        <div class="rules-col-title">✓ You May</div>
+        <ul>
+          <li>Play the Game for personal enjoyment on your own Device</li>
+          <li>Share screenshots or recordings of gameplay on social media</li>
+          <li>Contact us to report bugs or request support</li>
+          <li>Uninstall the Game at any time</li>
+        </ul>
+      </div>
+      <div class="rules-col deny">
+        <div class="rules-col-title">✕ You Must Not</div>
+        <ul>
+          <li>Reverse-engineer, decompile, or disassemble the Game</li>
+          <li>Modify, adapt, translate, or create derivative works</li>
+          <li>Copy, distribute, sell, or rent the Game or any part thereof</li>
+          <li>Use cheats, hacks, aimbots, or unauthorised third-party software</li>
+          <li>Exploit bugs to gain unfair advantage or manipulate leaderboards</li>
+          <li>Use automated bots or scripts to interact with the Game</li>
+          <li>Remove, alter, or obscure any proprietary notices or labels</li>
+          <li>Use the Game for any commercial purpose without written consent</li>
+        </ul>
+      </div>
+    </div>
+    <p>Violation of any restriction in this section may result in immediate termination of your licence and removal of your leaderboard data without prior notice.</p>
+  </div>
+
+  <!-- ── SECTION 5 ── -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Intellectual Property</h2>
+    </div>
+    <p>Stack It! and all content within it — including but not limited to the game engine, graphics, artwork, animations, user interface, sound effects, music, game mechanics, code, the FunMindo name, and the FunMindo logo — are the exclusive intellectual property of <strong>FunMindo</strong> or its licensors, protected under Indian and international intellectual property laws.</p>
+    <div class="callout neutral">
+      <span class="icon">⚠️</span>
+      <div>
+        This EULA does <strong>not</strong> transfer any ownership rights to you. You are granted a licence to
+        <em>use</em> the Game, not to own it or any part of it. All rights not expressly stated in this
+        EULA remain with FunMindo.
+      </div>
+    </div>
+    <p>Your leaderboard display name (chosen from our predefined safe-name list) remains your own content. By saving a display name to the leaderboard, you grant FunMindo a worldwide, royalty-free, non-exclusive licence to display that name on the in-game leaderboard and in any promotional materials related to Stack It!.</p>
+    <p>Unity Gaming Services and Google are third-party providers. Their respective intellectual property rights are governed by their own terms and licences.</p>
+  </div>
+
+  <!-- ── SECTION 6 ── -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>In-Game Content &amp; Currencies</h2>
+    </div>
+    <p>Stack It! features three virtual in-game currencies — <strong>Coins 🪙</strong>, <strong>Diamonds 💎</strong>, and <strong>Crowns 👑</strong>. All In-Game Content is governed by the following terms:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Currency</th><th>How Earned</th><th>Used For</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🪙 Coins</td><td>Gameplay rewards &amp; optional rewarded ads</td><td>Unlock block skins in the shop</td></tr>
+          <tr><td>💎 Diamonds</td><td>Gameplay rewards &amp; optional rewarded ads</td><td>Unlock block skins in the shop</td></tr>
+          <tr><td>👑 Crowns</td><td>Gameplay rewards &amp; optional rewarded ads</td><td>Unlock block skins in the shop</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout green">
+      <span class="icon">🛡️</span>
+      <div>
+        <strong>No real-money purchases.</strong> Stack It! contains no in-app purchases of any kind. All three currencies are earned exclusively through gameplay and by voluntarily watching rewarded advertisements. No payment is ever required to earn, use, or unlock content.
+      </div>
+    </div>
+    <h3>Virtual Currency Rules</h3>
+    <p>You acknowledge and agree that:</p>
+    <ul style="margin-left:20px; color: var(--text-muted); font-size:15px; line-height:2;">
+      <li>All currencies hold <strong>no real-world monetary value</strong> and cannot be exchanged for cash or real goods</li>
+      <li>All currency balances are stored <strong>locally on your Device</strong> and will be permanently lost upon uninstallation</li>
+      <li>FunMindo is <strong>not responsible</strong> for any currency or skin loss due to device failure, reset, or uninstallation</li>
+      <li>Any attempt to generate, duplicate, or manipulate currencies through unauthorised means is strictly prohibited</li>
+      <li>FunMindo reserves the right to adjust earn rates, costs, and item availability at any time without notice</li>
+      <li>Unlocked skins are cosmetic only and do not affect gameplay performance or scores</li>
+    </ul>
+  </div>
+
+  <!-- ── SECTION 7 ── -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Leaderboard &amp; Display Name</h2>
+    </div>
+    <p>Participation in the global leaderboard (Weekly and All-Time) is entirely optional and powered by <strong>Unity Gaming Services (UGS)</strong>.</p>
+    <div class="callout green">
+      <span class="icon">🛡️</span>
+      <div>
+        <strong>Child-safe by design.</strong> Stack It! uses a predefined name system — all display names are curated by FunMindo. No player can enter a free-form name, protecting all users (including young children) from offensive or identifying content appearing on the leaderboard.
+      </div>
+    </div>
+    <p>By participating in the leaderboard, you agree that:</p>
+    <ul style="margin-left:20px; color: var(--text-muted); font-size:15px; line-height:2;">
+      <li>Only scores achieved through legitimate gameplay will be accepted</li>
+      <li>Once your display name is saved, it <strong>cannot be changed</strong> within the Game</li>
+      <li>FunMindo may remove any leaderboard entry deemed suspicious or in violation of this EULA at any time without notice</li>
+      <li>Weekly leaderboards reset on a regular schedule; historical weekly scores may not be retained</li>
+      <li>FunMindo does not guarantee leaderboard availability at all times</li>
+    </ul>
+    <p>To request removal of your leaderboard entry and associated data, contact us at <a href="mailto:funmindostudio@gmail.com">funmindostudio@gmail.com</a> or visit our <a href="https://funmindo.github.io/funmindo-data-deletion/">Data Deletion page</a>.</p>
+  </div>
+
+  <!-- ── SECTION 8 ── -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Advertisements</h2>
+    </div>
+    <p>Stack It! is free to play and supported by advertisements delivered by <strong>Google AdMob</strong>. By using the Game, you acknowledge that:</p>
+    <ul style="margin-left:20px; color: var(--text-muted); font-size:15px; line-height:2;">
+      <li>Advertisements are an integral part of the free-to-play experience</li>
+      <li>Ads may appear at natural breakpoints between rounds</li>
+      <li>Rewarded video ads are always <strong>optional</strong> — you choose whether to watch them in exchange for in-game currencies</li>
+      <li>All advertisements are configured for a <strong>general audience (3+)</strong></li>
+      <li>FunMindo does not endorse any product or service advertised within the Game</li>
+      <li>AdMob may use your device's Advertising ID to serve relevant ads (see Section 10)</li>
+    </ul>
+    <p>You can opt out of personalised ads at any time via <strong>Settings → Google → Ads → Opt out of Ads Personalisation</strong> on your Android device. The Game will continue to function normally if you opt out; you will simply see non-personalised ads.</p>
+  </div>
+
+  <!-- ── SECTION 9 ── -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Third-Party Services</h2>
+    </div>
+    <p>Stack It! integrates the following third-party services. Use of the Game constitutes acceptance of their respective terms and privacy policies.</p>
+    <div class="service-list">
+      <div class="service-card">
+        <span class="service-icon">📢</span>
+        <div class="service-body">
+          <h4>Google AdMob</h4>
+          <p>Delivers in-game advertisements. May collect device identifiers and Advertising ID. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy →</a></p>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔥</span>
+        <div class="service-body">
+          <h4>Google Firebase (Analytics &amp; Crashlytics)</h4>
+          <p>Collects anonymous usage data and crash reports to improve game stability. No personally identifiable information is sent. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy →</a></p>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎮</span>
+        <div class="service-body">
+          <h4>Unity Gaming Services (UGS)</h4>
+          <p>Powers anonymous authentication and global leaderboards. Stores your chosen display name and scores against a randomly generated Player ID. <a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener">unity.com/legal/privacy-policy →</a></p>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏪</span>
+        <div class="service-body">
+          <h4>Google Play Services</h4>
+          <p>Used for app distribution and updates on Android. Subject to Google's standard terms and privacy policy. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy →</a></p>
+        </div>
+      </div>
+    </div>
+    <p>FunMindo is not responsible for the practices, content, or availability of these third-party services. We encourage you to review their privacy policies independently.</p>
+  </div>
+
+  <!-- ── SECTION 10 ── -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Privacy &amp; Data</h2>
+    </div>
+    <p>Your privacy matters to us. Our full <a href="https://funmindo.github.io/funmindo-privacy/">Privacy Policy</a> explains exactly what data is collected, why, and how it is protected. Key points relevant to this EULA:</p>
+    <div class="callout green">
+      <span class="icon">✅</span>
+      <div>
+        We do <strong>not</strong> collect your real name, email address, phone number, precise location, photos, or any other personally identifiable information. The only data tied to you on the leaderboard is an anonymous Player ID and a predefined display name.
+      </div>
+    </div>
+    <p>For information on how to request deletion of your data, please visit our <a href="https://funmindo.github.io/funmindo-data-deletion/">Data Deletion page</a> or email us at <a href="mailto:funmindostudio@gmail.com">funmindostudio@gmail.com</a>.</p>
+  </div>
+
+  <!-- ── SECTION 11 ── -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Disclaimer of Warranties</h2>
+    </div>
+    <p>Stack It! is provided on an <strong>"as is"</strong> and <strong>"as available"</strong> basis, without any warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+    <div class="callout neutral">
+      <span class="icon">⚠️</span>
+      <div>
+        FunMindo does not warrant that the Game will be uninterrupted, error-free, or free from harmful components.
+        Game features — including leaderboard services, ad availability, and coin rewards — may vary or be
+        temporarily unavailable. FunMindo reserves the right to modify, suspend, or discontinue the Game or
+        any feature at any time without notice.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 12 ── -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>Limitation of Liability</h2>
+    </div>
+    <p>To the fullest extent permitted by applicable law, <strong>FunMindo shall not be liable</strong> for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, Stack It!, including but not limited to:</p>
+    <ul style="margin-left:20px; color: var(--text-muted); font-size:15px; line-height:2;">
+      <li>Loss of in-game currencies or unlocked skins due to uninstallation, device failure, or factory reset</li>
+      <li>Loss of leaderboard data due to service interruptions by Unity Gaming Services</li>
+      <li>Any harm arising from third-party advertisements or linked services</li>
+      <li>Unauthorised access to or alteration of your device data</li>
+    </ul>
+    <div class="callout neutral">
+      <span class="icon">💼</span>
+      <div>
+        FunMindo's total liability for any claim arising under this EULA shall not exceed <strong>INR 0 (zero)</strong>, as Stack It! is provided entirely free of charge with no monetary transactions.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 13 ── -->
+  <div class="section" id="s13">
+    <div class="section-header">
+      <div class="section-num">13</div>
+      <h2>Termination</h2>
+    </div>
+    <p><strong>By FunMindo:</strong> FunMindo may terminate or suspend your licence to use the Game (including leaderboard access) immediately, without notice, if you breach any provision of this EULA.</p>
+    <p><strong>By you:</strong> You may terminate this EULA at any time by uninstalling the Game from your Device. Upon uninstallation, all locally stored data (currencies, progress, settings) will be deleted from your Device. Leaderboard data on UGS servers may be retained until you request deletion.</p>
+    <p>The following sections survive termination of this EULA: Section 5 (Intellectual Property), Section 11 (Disclaimer of Warranties), Section 12 (Limitation of Liability), and Section 15 (Governing Law).</p>
+  </div>
+
+  <!-- ── SECTION 14 ── -->
+  <div class="section" id="s14">
+    <div class="section-header">
+      <div class="section-num">14</div>
+      <h2>Updates to This EULA</h2>
+    </div>
+    <p>FunMindo may update this EULA from time to time. All changes will be posted on this page with a revised "Last Updated" date. We will make reasonable efforts to notify you of significant changes through an in-game notice or a Play Store update description.</p>
+    <p>Your continued use of Stack It! after the effective date of any revision constitutes your acceptance of the updated EULA. If you do not agree with any updated terms, you must stop using the Game and uninstall it from your Device.</p>
+  </div>
+
+  <!-- ── SECTION 15 ── -->
+  <div class="section" id="s15">
+    <div class="section-header">
+      <div class="section-num">15</div>
+      <h2>Governing Law</h2>
+    </div>
+    <p>This EULA is governed by and construed in accordance with the laws of <strong>India</strong>, including the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023 (DPDPA).</p>
+    <p>Any dispute, controversy, or claim arising out of or in connection with this EULA, or the breach, termination, or invalidity thereof, shall be subject to the exclusive jurisdiction of the competent courts in India.</p>
+    <p>If any provision of this EULA is found by a court of competent jurisdiction to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+  </div>
+
+  <!-- ── SECTION 16 ── -->
+  <div class="section" id="s16">
+    <div class="section-header">
+      <div class="section-num">16</div>
+      <h2>Contact Us</h2>
+    </div>
+    <p>For any questions, concerns, or requests related to this EULA, please contact us. We aim to respond within <strong>30 days</strong>.</p>
+  </div>
+
+  <!-- Contact Box -->
+  <div class="contact-box">
+    <div class="contact-icon">✉️</div>
+    <h3>Contact FunMindo</h3>
+    <p>Developer: <strong>FunMindo</strong></p>
+    <p>Questions about this EULA? We respond within 30 days.</p>
+    <p>Email us at: <a href="mailto:funmindostudio@gmail.com">funmindostudio@gmail.com</a></p>
+  </div>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-copy">© 2026 <strong>FunMindo</strong>. All rights reserved.</div>
+  <div class="footer-links">
+    <span>Stack It! · Version 1.0 · EULA v1.0</span>
+    <span class="footer-sep">·</span>
+    <a href="https://funmindo.github.io/funmindo-privacy/">Privacy Policy</a>
+    <span class="footer-sep">·</span>
+    <a href="https://funmindo.github.io/funmindo-terms/">Terms of Use</a>
+    <span class="footer-sep">·</span>
+    <a href="https://funmindo.github.io/funmindo-data-deletion/">Data Deletion</a>
+    <span class="footer-sep">·</span>
+    <span>Governed by the laws of India</span>
+  </div>
+  <div class="footer-links" style="margin-top:6px;">
+    <span>This document was last reviewed on April 25, 2026.</span>
+  </div>
+</footer>
+
+</body>
+</html>
